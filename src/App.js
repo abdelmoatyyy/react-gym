@@ -6,8 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 function App() {
   return (
-    <div className="App container">
-      <button className="btn-primary"></button>
+    <div className="">
+      <button className=""></button>
     </div>
   );
 }
