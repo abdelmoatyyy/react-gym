@@ -5,14 +5,14 @@ const SliderCard = (props) => {
     <div
       className="card"
       style={{
-        width: "250px",
-        height: "200px",
+        // width: "250px",
+        // height: "200px",
         background: "#fff",
         borderTop: "4px solid #FF2625",
         borderBottomLeftRadius: "20px",
         textDecoration: "none",
         display: "flex",
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
         flexDirection: "column",
         paddingBottom: "10px",
         transform: "scale(1, 1)",

@@ -1,0 +1,8 @@
+.btn-style{
+    font-size: 18px;
+    padding: 12px 22px;
+}
+.form-control:focus{
+    border-color: red;
+    box-shadow: 0 0 0.25rem red;
+}

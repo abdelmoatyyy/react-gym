@@ -1,0 +1,22 @@
+.result-section{
+    padding: 120px 0;
+    background-color: #23241f;
+
+}
+.title-style{
+    font-size: 80px;
+    font-weight: 900;
+    color:#e8dfe2 ;
+    text-align: center;
+}
+.result-section img{
+    width: 100%;
+}
+@media only screen and (max-width: 600px) {
+    .result-section{
+        padding: 40px 0;
+    }
+    .title-style{
+        font-size: 40px;
+    }
+}

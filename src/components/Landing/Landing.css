@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: -2px;
 }
 .img-style{
     width: 700px;
@@ -68,6 +69,17 @@
     font-size: 18px;
     padding: 12px 22px;
 }
+.section-padding{
+    padding: 50px 0 20px 0;
+}
+.lite-title{
+    font-size: 120px;
+    font-weight: 900;
+    color: #ff1a2a1a;
+    position: relative;
+    bottom: 1.1em;
+
+}
 /* MQ */
 @media only screen and (max-width: 600px) {
     .bg{
@@ -78,5 +90,14 @@
     }
     .title{
         font-size: 50px;
+    }
+    .section-padding{
+        padding: 20px 0 50px 0;
+    }
+    .lite-title{
+        font-size: 60px;
+        color: #ff1a2a1a;
+        position: absolute;
+        bottom: 4.8em;
     }
     }
