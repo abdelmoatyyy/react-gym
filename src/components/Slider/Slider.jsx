@@ -1,77 +1,73 @@
-import React from "react";
-import "./Slider.css"
+import React, { useEffect, useState } from "react";
+import "./Slider.css";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import SliderCard from "../SliderCard/SliderCard";
 // Import Swiper styles
 import "swiper/css";
-
-
+import axios from "axios";
 
 const Slider = () => {
+  useEffect(() => {
+    fetchCardsData();
+  }, []);
+  const [cardsData, setCardsData] = useState([]);
+
+  const fetchCardsData = () => {
+    axios
+      .get("https://exercisedb.p.rapidapi.com/exercises/bodyPartList", {
+        headers: {
+          "X-RapidAPI-Key":
+            "611927eb7dmsh56c37624dbffa0bp1103e8jsn24776068c2bb",
+          "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+        },
+      })
+      .then((response) => {
+        const cardsData = response.data;
+        setCardsData(cardsData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
-
     <section className="swiper-section">
-    <div className="container">
-    <Swiper
-            //  slidesPerView={5}
-            //  spaceBetween={10}
-             pagination={{
-               clickable: true,
-             }}
-             breakpoints={{
-               360: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 40,
-              },
-              1024: {
-                slidesPerView: 5,
-                spaceBetween: 10,
-              },
-            }}
-            // modules={[Pagination]}
-            className="mySwiper"
-          >
-        
-        <SwiperSlide>
-          <SliderCard name="All" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard name="Cardio" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard name="Cardio" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard name="Cardio" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard name="Cardio" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard name="Cardio" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard name="Cardio" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard name="Cardio" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard name="Press" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SliderCard name="Muscles" />
-        </SwiperSlide>
-
-      </Swiper>
+      <div className="container">
+        <Swiper
+          //  slidesPerView={5}
+          //  spaceBetween={10}
+          pagination={{
+            clickable: true,
+          }}
+          breakpoints={{
+            360: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            },
+          }}
+          // modules={[Pagination]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <SliderCard name="All" />
+          </SwiperSlide>
+          {cardsData.map((data) => (
+            <SwiperSlide>
+              <SliderCard name={data} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
-
   );
 };
 
@@ -89,8 +85,7 @@ export default Slider;
 // import required modules
 // import { Pagination } from 'swiper/modules';
 
-
-// const Slider = () => {    
+// const Slider = () => {
 //       return (
 //         <>
 //           <Swiper
@@ -129,6 +124,5 @@ export default Slider;
 //         </>
 //       );
 //     }
-    
 
 // export default Slider
